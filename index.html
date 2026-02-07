@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WS Piscinas — Construcción, Mantención y Accesorios</title>
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-sans antialiased text-slate-800">
+
+  <!-- Header -->
+  <header class="bg-white shadow sticky top-0 z-40">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <a href="#" class="flex items-center gap-2">
+        <img src="images/LogoWSpiscinas.jpg" alt="wspiscinas" class="h-12 w-auto">
+        <span class="font-bold text-xl text-sky-600">WS Piscinas</span>
+      </a>
+     <nav class="hidden md:flex gap-6 text-sm font-semibold text-slate-700">
+  <a href="productos.html" class="hover:text-sky-600">Productos</a>
+  <a href="servicios.html" class="hover:text-sky-600">Servicios</a>
+  <a href="proyectos.html" class="hover:text-sky-600">Proyectos</a>
+  <a href="#contacto" class="hover:text-sky-600">Contacto</a>
+     </nav>
+      <a href="#contacto" class="hidden md:inline-flex bg-sky-600 text-white px-5 py-2 rounded-full shadow hover:bg-sky-700">Cotizar</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-sky-50 py-16 text-center">
+    <div class="container mx-auto px-6">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900">Soluciones completas para tu piscina</h1>
+      <p class="mt-4 text-lg text-slate-600">Productos, mantención profesional y construcción a tu medida.</p>
+      <div class="mt-6 flex justify-center gap-4">
+        <a href="productos.html" class="bg-sky-600 text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-sky-700">Ver productos</a>
+        <a href="servicios.html" class="border border-sky-600 text-sky-600 px-6 py-3 rounded-full font-semibold hover:bg-sky-100">Servicios</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Productos -->
+<section id="productos" class="py-16 container mx-auto px-6">
+  <h2 class="text-3xl font-bold text-center">Productos destacados</h2>
+  <p class="text-center text-slate-600 mt-2 mb-8">
+    Encuentra aquí nuestros productos principales: cloro granulado, bomba de filtrado y cloro en tabletas.
+  </p>
+  <div class="mt-10 grid md:grid-cols-3 gap-6">
+    <!-- Bomba filtrado 1HP -->
+    <div class="border rounded-xl overflow-hidden shadow hover:shadow-lg bg-white flex flex-col">
+      <img src="images/bombapiscina1hp.jpeg" alt="Bomba piscina" class="w-full h-48 object-cover">
+      <div class="p-4 flex-1 flex flex-col justify-between">
+        <div>
+          <h3 class="font-semibold">Bomba filtrado 1HP</h3>
+          <p class="text-slate-600 text-sm">Ideal para piscinas hasta 40 m³.</p>
+          <span class="block mt-2 font-bold text-sky-600">$159.990</span>
+        </div>
+        <a href="pago.html?producto=bomba-filtrado-1hp" class="mt-4 bg-sky-600 text-white px-3 py-1 rounded font-semibold hover:bg-sky-700 text-sm block text-center">Agregar al carro</a>
+      </div>
+    </div>
+   <!-- Cloro granulado -->
+    <div class="border rounded-xl overflow-hidden shadow hover:shadow-lg bg-white flex flex-col">
+      <img src="images/Clorogranulado.jpeg" alt="Cloro" class="w-full h-48 object-cover">
+      <div class="p-4 flex-1 flex flex-col justify-between">
+        <div>
+          <h3 class="font-semibold">Cloro granulado</h3>
+          <p class="text-slate-600 text-sm">Estabilizado, rápida disolución.</p>
+          <ul class="mt-2 text-sky-600 font-bold space-y-1">
+            <li>1 kg — $3.500</li>
+            <li>3 kg — $10.000</li>
+            <li>5 kg — $15.000</li>
+          </ul>
+        </div>
+        <div class="mt-4 flex gap-2">
+          <select id="cloro-granulado-select" class="border rounded px-2 py-1 text-sm">
+            <option value="1">1 kg</option>
+            <option value="3">3 kg</option>
+            <option value="5">5 kg</option>
+          </select>
+          <a id="cloro-granulado-link" href="pago.html?producto=cloro-granulado&cantidad=1" class="bg-sky-600 text-white px-3 py-1 rounded font-semibold hover:bg-sky-700 text-sm block text-center">Agregar al carro</a>
+        </div>
+      </div>
+    </div>
+   <!-- Cloro en tabletas triple acción -->
+    <div class="border rounded-xl overflow-hidden shadow hover:shadow-lg bg-white flex flex-col">
+      <img src="images/pastillascloro.jpeg" alt="Cloro tabletas" class="w-full h-48 object-cover">
+      <div class="p-4 flex-1 flex flex-col justify-between">
+        <div>
+          <h3 class="font-semibold">Cloro en tabletas triple acción</h3>
+          <p class="text-slate-600 text-sm">Desinfecta, clarifica y previene algas.</p>
+          <ul class="mt-2 text-sky-600 font-bold space-y-1">
+            <li>1 kg — $3.900</li>
+            <li>3 kg — $10.500</li>
+            <li>5 kg — $16.000</li>
+          </ul>
+        </div>
+        <div class="mt-4 flex gap-2">
+          <select id="cloro-tabletas-select" class="border rounded px-2 py-1 text-sm">
+            <option value="1">1 kg</option>
+            <option value="3">3 kg</option>
+            <option value="5">5 kg</option>
+          </select>
+          <a id="cloro-tabletas-link" href="pago.html?producto=cloro-tabletas&cantidad=1" class="bg-sky-600 text-white px-3 py-1 rounded font-semibold hover:bg-sky-700 text-sm block text-center">Agregar al carro</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- El script debe ir fuera del grid y al final del section -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('cloro-granulado-select').addEventListener('change', function() {
+        document.getElementById('cloro-granulado-link').href = `pago.html?producto=cloro-granulado&cantidad=${this.value}`;
+      });
+      document.getElementById('cloro-tabletas-select').addEventListener('change', function() {
+        document.getElementById('cloro-tabletas-link').href = `pago.html?producto=cloro-tabletas&cantidad=${this.value}`;
+      });
+    });
+  </script>
+</section>
+
+  <!-- Servicios -->
+  <section id="servicios" class="py-16 bg-sky-50">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold">Servicios profesionales</h2>
+      <p class="mt-2 text-slate-600">Mantención, instalación y construcción de piscinas en Rancagua y alrededores.</p>
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg">
+          <h3 class="font-semibold text-lg">Mantención mensual</h3>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg">
+          <h3 class="font-semibold text-lg">Instalación de sistemas</h3>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg">
+          <h3 class="font-semibold text-lg">Construcción y reparación</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contacto" class="bg-slate-900 text-white py-12">
+    <div class="container mx-auto px-6 grid md:grid-cols-3 gap-8">
+      <div class="flex items-center gap-3">
+        <img src="images/logoWSpiscinastransparente.png" alt="WS Piscinas" class="h-12">
+        <span class="font-bold text-lg">WS Piscinas</span>
+      </div>
+      <div>
+        <h4 class="font-semibold">Contacto</h4>
+        <p class="mt-2">Tel: <a href="tel:+56987304690" class="underline">+56 9 8730 4690</a></p>
+        <p>Email: wsanhueza@piscinasorca.cl</p>
+      </div>
+      <div>
+        <h4 class="font-semibold">Ubicación</h4>
+        <p class="mt-2">Rancagua, Región de O'Higgins</p>
+      </div>
+    </div>
+    <div class="mt-6 text-center text-sm text-slate-400">© 2025 WS Piscinas. Todos los derechos reservados.</div>
+  </footer>
+
+  <!-- Botón WhatsApp flotante -->
+  <a href="https://api.whatsapp.com/send?phone=56987304690&text=Hola%20WS%20Orca%2C%20quiero%20cotizar" class="fixed bottom-5 right-5 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg" aria-label="WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.672.15-.198.297-.768.967-.94 1.165-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.148-.672-1.62-.921-2.219-.242-.58-.487-.501-.672-.51l-.572-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.718 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.999-3.648-.235-.374a9.86 9.86 0 0 1-1.513-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.879 9.884"/></svg>
+  </a>
+
+</body>
+</html>

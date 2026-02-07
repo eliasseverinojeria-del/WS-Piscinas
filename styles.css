@@ -1,0 +1,5 @@
+:root {
+  --brand: #25A7E3;
+}
+.text-brand { color: var(--brand); }
+body { font-family: 'Montserrat', sans-serif; }
