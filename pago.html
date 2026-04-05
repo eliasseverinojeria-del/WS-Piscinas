@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pagar — WS Piscinas</title>
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans antialiased text-slate-800 bg-slate-50">
+
+  <header class="bg-white shadow">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <a href="index.html" class="flex items-center gap-2">
+        <img src="images/LogoWSpiscinas.jpg" alt="WS Piscinas" class="h-12">
+        <span class="font-bold text-xl text-sky-600">WS Piscinas</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-12">
+    <h1 class="text-2xl font-bold mb-4">Finalizar compra</h1>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Formulario de envío y contacto -->
+      <form id="checkout-form" class="bg-white p-6 rounded-lg shadow">
+        <h2 class="font-semibold mb-3">Datos de envío y contacto</h2>
+
+        <label class="block text-sm">Nombre completo
+          <input name="name" required class="mt-1 w-full border rounded px-3 py-2" />
+        </label>
+
+        <label class="block text-sm mt-3">Teléfono
+          <input name="phone" required class="mt-1 w-full border rounded px-3 py-2" />
+        </label>
+
+        <label class="block text-sm mt-3">Email
+          <input name="email" type="email" required class="mt-1 w-full border rounded px-3 py-2" />
+        </label>
+
+        <label class="block text-sm mt-3">Dirección (calle, número)
+          <input name="street" required class="mt-1 w-full border rounded px-3 py-2" />
+        </label>
+
+        <div class="flex gap-2 mt-3">
+          <label class="flex-1 text-sm">Ciudad
+            <input name="city" required class="mt-1 w-full border rounded px-3 py-2" />
+          </label>
+          <label class="flex-1 text-sm">Región
+            <input name="region" required class="mt-1 w-full border rounded px-3 py-2" />
+          </label>
+        </div>
+
+        <label class="block text-sm mt-3">Código postal
+          <input name="postal" class="mt-1 w-full border rounded px-3 py-2" />
+        </label>
+
+        <h3 class="font-semibold mt-6 mb-2">Método de pago</h3>
+        <div class="space-y-2">
+          <label class="flex items-center gap-2">
+            <input type="radio" name="payment" value="card" checked />
+            Pago con tarjeta (simulado)
+          </label>
+          <label class="flex items-center gap-2">
+            <input type="radio" name="payment" value="cod" />
+            Pagar al recibir (contra entrega)
+          </label>
+        </div>
+
+        <button type="submit" class="mt-6 w-full bg-sky-600 text-white px-4 py-2 rounded font-semibold hover:bg-sky-700">Pagar</button>
+      </form>
+
+      <!-- Resumen del pedido -->
+      <aside class="bg-white p-6 rounded-lg shadow">
+        <h2 class="font-semibold mb-3">Resumen del pedido</h2>
+        <div id="order-summary" class="space-y-3 text-sm text-slate-700">
+          <!-- Rellenado por JS -->
+        </div>
+        <div class="mt-4 border-t pt-4 text-right">
+          <div class="text-slate-600">Total</div>
+          <div id="total" class="text-2xl font-bold text-sky-600">$0</div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="bg-slate-900 text-white py-8 mt-12">
+    <div class="container mx-auto px-6 text-center text-sm">© 2025 WS Piscinas</div>
+  </footer>
+
+  <script>
+    // Catalogo / precios
+    const catalog = {
+      'bomba-filtrado-1hp': { name: 'Bomba filtrado 1HP', price: 159990 },
+      'robot-limpiafondos': { name: 'Robot limpiafondos', price: 799990 },
+      'boya-flotante': { name: 'Boya flotante', price: 4590 },
+      'malla-saca-hojas': { name: 'Malla Saca Hojas', price: 6990 },
+      // cloros con opciones por kg
+      'cloro-granulado': { name: 'Cloro granulado', options: { '1': 3500, '3': 10000, '5': 15000 } },
+      'cloro-tabletas': { name: 'Cloro en tabletas', options: { '1': 3900, '3': 10500, '5': 16000 } }
+    };
+
+    function priceFormat(n){ return '$' + n.toLocaleString('es-CL'); }
+
+    // Parse query params
+    const params = new URLSearchParams(location.search);
+    const productKey = params.get('producto') || '';
+    const cantidad = params.get('cantidad') || '1';
+
+    const summaryEl = document.getElementById('order-summary');
+    const totalEl = document.getElementById('total');
+
+    let order = {
+      productKey,
+      productName: '',
+      unitPrice: 0,
+      quantity: 1,
+      subtotal: 0
+    };
+
+    if (catalog[productKey]) {
+      const entry = catalog[productKey];
+      if (entry.options) {
+        // product with weight options
+        const selected = cantidad in entry.options ? cantidad : Object.keys(entry.options)[0];
+        order.productName = `${entry.name} — ${selected} kg`;
+        order.unitPrice = entry.options[selected];
+        order.quantity = 1;
+        order.subtotal = order.unitPrice * order.quantity;
+      } else {
+        order.productName = entry.name;
+        order.unitPrice = entry.price;
+        order.quantity = 1;
+        order.subtotal = order.unitPrice * order.quantity;
+      }
+    } else {
+      order.productName = 'Producto desconocido';
+    }
+
+    function renderSummary(){
+      summaryEl.innerHTML = `
+        <div class="flex justify-between"><div class="font-medium">${order.productName}</div><div id="unit" class="text-sky-600">${priceFormat(order.unitPrice)}</div></div>
+        <div class="flex justify-between text-sm text-slate-600"><div>Cantidad</div><div>${order.quantity}</div></div>
+      `;
+      totalEl.textContent = priceFormat(order.subtotal);
+    }
+
+    renderSummary();
+
+    // Form submit: validate, save order to session and redirect to confirmation (simulated payment)
+    document.getElementById('checkout-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      const f = e.target;
+      const data = {
+        product: order.productName,
+        unitPrice: order.unitPrice,
+        quantity: order.quantity,
+        subtotal: order.subtotal,
+        customer: {
+          name: f.name.value.trim(),
+          phone: f.phone.value.trim(),
+          email: f.email.value.trim(),
+          street: f.street.value.trim(),
+          city: f.city.value.trim(),
+          region: f.region.value.trim(),
+          postal: f.postal.value.trim()
+        },
+        paymentMethod: f.payment.value
+      };
+
+      // Basic validation
+      if (!data.customer.name || !data.customer.phone || !data.customer.email || !data.customer.street) {
+        alert('Por favor completa los campos requeridos.');
+        return;
+      }
+
+      // Simular paso de pago: guardo en sessionStorage y redirijo
+      sessionStorage.setItem('ws_order', JSON.stringify(data));
+      // En un paso real aquí se integraría con pasarela de pagos y sólo después confirmar.
+      location.href = 'pago_exitoso.html';
+    });
+  </script>
+</body>
+</html>
