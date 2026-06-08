@@ -15,7 +15,8 @@
       key: item.key,
       name: item.name || (catalog[item.key] ? catalog[item.key].name : item.key),
       unitPrice: Number(item.unitPrice ?? item.price ?? 0),
-      quantity: Math.max(1, parseInt(item.quantity || 1)),image: item.image || '' ))
+      quantity: Math.max(1, parseInt(item.quantity || 1)),
+      image: item.image || ''
     };
   }
 
