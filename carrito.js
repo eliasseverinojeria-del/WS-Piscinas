@@ -86,8 +86,14 @@
     interceptAnchors(document);
     updateCartBadge();
   }
+
+  // Optimized MutationObserver con debounce
+  let debounceTimer;
   new MutationObserver(()=> {
-    interceptAnchors(document);
-    updateCartBadge();
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(()=> {
+      interceptAnchors(document);
+      updateCartBadge();
+    }, 300); // Espera 300ms sin cambios antes de ejecutar
   }).observe(document.documentElement, { childList:true, subtree:true });
 })();
