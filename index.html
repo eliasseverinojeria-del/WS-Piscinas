@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="font-sans antialiased text-slate-800">
-
+ 
   <!-- Header -->
   <header class="bg-white shadow sticky top-0 z-40">
     <div class="container mx-auto flex justify-between items-center py-4 px-6">
@@ -21,12 +21,12 @@
         <span class="font-bold text-xl text-sky-600">WS Piscinas</span>
       </a>
      <nav class="hidden md:flex gap-6 text-sm font-semibold text-slate-700">
-  <a href="productos.html" class="hover:text-sky-600">Productos</a>
-  <a href="servicios.html" class="hover:text-sky-600">Servicios</a>
-  <a href="proyectos.html" class="hover:text-sky-600">Proyectos</a>
-  <a href="#contacto" class="hover:text-sky-600">Contacto</a>
-     </nav>
-      <a href="#contacto" class="hidden md:inline-flex bg-sky-600 text-white px-5 py-2 rounded-full shadow hover:bg-sky-700">Cotizar</a>
+   <a href="productos.html" class="hover:text-sky-600">Productos</a>
+   <a href="servicios.html" class="hover:text-sky-600">Servicios</a>
+   <a href="proyectos.html" class="hover:text-sky-600">Proyectos</a>
+   <a href="#contacto" class="hover:text-sky-600">Contacto</a>
+      </nav>
+       <a href="#contacto" class="hidden md:inline-flex bg-sky-600 text-white px-5 py-2 rounded-full shadow hover:bg-sky-700">Cotizar</a>
     </div>
   </header>
 
@@ -86,7 +86,8 @@
             <option value="5">5 kg</option>
           </select>
           <button id="cloro-granulado-btn" type="button" class="bg-sky-600 text-white px-3 py-1 rounded font-semibold hover:bg-sky-700 text-sm block text-center"
-            onclick="(function(){ const sel=document.getElementById('cloro-granulado-select'); const kg=sel.value; const price = (kg==='1'?3500:(kg==='3'?10000:15000)); addToCart({ key:'cloro-granulado', name:`Cloro granulado — ${kg} kg`, unitPrice:price, quantity:1, image: 'Clorogranulado.jpeg' }); location.href='carrito.html'; })()">
+            onclick="(function(){ const sel=document.getElementById('cloro-granulado-select'); const kg=sel.value; const price = (kg==='1'?3500:(kg==='3'?10000:15000)); addToCart({ key:'cloro-granulado', name: 'Cloro granulado - '+kg+' kg', unitPrice:price, quantity:1, image: 'Clorogranulado.jpeg' }); location.href='carrito.html';})()"
+            >
             Agregar al carro
           </button>
         </div>
@@ -112,7 +113,8 @@
             <option value="5">5 kg</option>
           </select>
           <button id="cloro-tabletas-btn" type="button" class="bg-sky-600 text-white px-3 py-1 rounded font-semibold hover:bg-sky-700 text-sm block text-center"
-            onclick="(function(){ const sel=document.getElementById('cloro-tabletas-select'); const kg=sel.value; const price = (kg==='1'?3900:(kg==='3'?10500:16000)); addToCart({ key:'cloro-tabletas', name:`Cloro en tabletas — ${kg} kg`, unitPrice:price, quantity:1, image: 'pastillascloro.jpeg' }); location.href='carrito.html'; })()">
+            onclick="(function(){ const sel=document.getElementById('cloro-tabletas-select'); const kg=sel.value; const price = (kg==='1'?3900:(kg==='3'?10500:16000)); addToCart({ key:'cloro-tabletas', name: 'Cloro en tabletas - '+kg+' kg', unitPrice:price, quantity:1, image: 'pastillascloro.jpeg' }); location.href='carrito.html';})()"
+            >
             Agregar al carro
           </button>
         </div>
@@ -161,8 +163,20 @@
   </footer>
 
   <!-- Botón WhatsApp flotante -->
-  <a href="https://api.whatsapp.com/send?phone=56987304690&text=Hola%20WS%20Piscinas%2C%20quiero%20cotizar" class="fixed bottom-5 right-5 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg" aria-label="WhatsApp">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.672.15-.198.297-.768.967-.94 1.165-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.148-.672-1.62-.921-2.219-.242-.58-.487-.501-.672-.51l-.572-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.718 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.999-3.648-.235-.374a9.86 9.86 0 0 1-1.513-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.879 9.884"/></svg>
+  <a href="https://api.whatsapp.com/send?phone=56987304690&text=Hola%20WS%20Piscinas%2C%20quiero%20cotizar" class="fixed bottom-5 right-5 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition z-30"
+    title="Contactar por WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.672.15-.198.297-.768.967-.94 1.164-.168.196-.337.22-.635.07-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.672-1.622-.922-2.206-.242-.579-.487-.5-.672-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a6.963 6.963 0 00-7.145 6.954c0 1.474.324 2.918.944 4.267l-1.006 3.674 3.77-.988a6.961 6.961 0 004.126 1.271h.004c3.879 0 7.067-3.188 7.067-7.066 0-1.891-.823-3.714-2.262-4.955a7.066 7.066 0 00-4.804-1.978M3.159 20.033l.006-.009m16.884-15.384l-.007.011"/></svg>
+  </a>
+
+  <!-- Icono Carrito Flotante -->
+  <a href="carrito.html" class="fixed bottom-24 right-5 w-14 h-14 bg-sky-600 rounded-full flex items-center justify-center shadow-lg hover:bg-sky-700 transition z-30"
+    title="Ver carrito de compras">
+    <div class="relative">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 fill-white" viewBox="0 0 24 24">
+        <path d="M7 4V3a1 1 0 011-1h2a1 1 0 011 1v1h6V3a1 1 0 011-1h2a1 1 0 011 1v1a3 3 0 013 3v2h1a1 1 0 110 2h-.189l-.342 10.265A3 3 0 0120.126 21H3.874a3 3 0 01-2.989-2.735L.665 8H0a1 1 0 110-2h1V7a3 3 0 013-3zm2 2a1 1 0 00-1 1v2a1 1 0 002 0V7a1 1 0 00-1-1zm6 0a1 1 0 00-1 1v2a1 1 0 002 0V7a1 1 0 00-1-1z"/>
+      </svg>
+      <span id="cart-badge" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center hidden">0</span>
+    </div>
   </a>
 
   <script src="./carrito.js"></script>
