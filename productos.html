@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="font-sans antialiased text-slate-800">
-
+ 
   <!-- Header (igual que en index.html) -->
   <header class="bg-white shadow sticky top-0 z-40">
     <div class="container mx-auto flex justify-between items-center py-4 px-6">
@@ -128,7 +128,8 @@
               <option value="5">5 kg</option>
             </select>
             <button type="button" class="bg-sky-600 text-white px-3 py-1 rounded font-semibold hover:bg-sky-700 text-sm"
-              onclick="(function(){ const sel=document.getElementById('cloro-granulado-select'); const kg=sel.value; const price = (kg==='1'?3500:(kg==='3'?10000:15000)); addToCart({ key:'cloro-granulado', name:`Cloro granulado — ${kg} kg`, unitPrice:price, quantity:1, image:'Clorogranulado' }); location.href='carrito.html'; })()">
+              onclick="(function(){ const sel=document.getElementById('cloro-granulado-select'); const kg=sel.value; const price = (kg==='1'?3500:(kg==='3'?10000:15000)); addToCart({ key:'cloro-granulado', name: 'Cloro granulado - '+kg+' kg', unitPrice:price, quantity:1, image: 'Clorogranulado.jpeg' }); location.href='carrito.html';})()"
+              >
               Agregar al carro
             </button>
           </div>
@@ -155,7 +156,8 @@
               <option value="5">5 kg</option>
             </select>
             <button type="button" class="bg-sky-600 text-white px-3 py-1 rounded font-semibold hover:bg-sky-700 text-sm"
-              onclick="(function(){ const sel=document.getElementById('cloro-tabletas-select'); const kg=sel.value; const price = (kg==='1'?3900:(kg==='3'?10500:16000)); addToCart({ key:'cloro-tabletas', name:`Cloro en tabletas — ${kg} kg`, unitPrice:price, quantity:1, image:'pastillascloro.jpeg' }); location.href='carrito.html'; })()">
+              onclick="(function(){ const sel=document.getElementById('cloro-tabletas-select'); const kg=sel.value; const price = (kg==='1'?3900:(kg==='3'?10500:16000)); addToCart({ key:'cloro-tabletas', name: 'Cloro en tabletas - '+kg+' kg', unitPrice:price, quantity:1, image: 'pastillascloro.jpeg' }); location.href='carrito.html';})()"
+              >
               Agregar al carro
             </button>
           </div>
@@ -164,6 +166,17 @@
 
     </div>
   </main>
+
+  <!-- Icono Carrito Flotante -->
+  <a href="carrito.html" class="fixed bottom-24 right-5 w-14 h-14 bg-sky-600 rounded-full flex items-center justify-center shadow-lg hover:bg-sky-700 transition z-30"
+    title="Ver carrito de compras">
+    <div class="relative">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 fill-white" viewBox="0 0 24 24">
+        <path d="M7 4V3a1 1 0 011-1h2a1 1 0 011 1v1h6V3a1 1 0 011-1h2a1 1 0 011 1v1a3 3 0 013 3v2h1a1 1 0 110 2h-.189l-.342 10.265A3 3 0 0120.126 21H3.874a3 3 0 01-2.989-2.735L.665 8H0a1 1 0 110-2h1V7a3 3 0 013-3zm2 2a1 1 0 00-1 1v2a1 1 0 002 0V7a1 1 0 00-1-1zm6 0a1 1 0 00-1 1v2a1 1 0 002 0V7a1 1 0 00-1-1z"/>
+      </svg>
+      <span id="cart-badge" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center hidden">0</span>
+    </div>
+  </a>
 
   <footer class="bg-slate-900 text-white py-8 mt-12">
     <div class="container mx-auto px-6 text-center text-sm">© WS Piscinas</div>
