@@ -21,7 +21,7 @@
         <a href="servicios.html" class="hover:text-sky-600">Servicios</a>
         <a href="#contacto" class="hover:text-sky-600">Contacto</a>
       </nav>
-      <a href="productos.html" class="hidden md:inline-flex bg-sky-600 text-white px-5 py-2 rounded-full shadow">Seguir comprando</a>
+      <a href="productos.html" class="bg-sky-600 text-white px-4 md:px-5 py-2 rounded-full shadow text-sm md:text-base">Seguir comprando</a>
     </div>
   </header>
 
@@ -32,15 +32,15 @@
       <!-- listado dinámico -->
     </div>
 
-    <div class="mt-6 flex justify-between items-center">
-      <div>
-        <button id="clear-cart" class="bg-red-600 text-white px-4 py-2 rounded">Vaciar carrito</button>
+    <div class="mt-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+      <div class="w-full md:w-auto">
+        <button id="clear-cart" class="bg-red-600 text-white px-4 py-2 rounded w-full md:w-auto">Vaciar carrito</button>
       </div>
-      <div class="text-right">
+      <div class="text-right w-full md:w-auto">
         <div class="text-sm text-slate-600">Total</div>
         <div id="cart-total" class="text-2xl font-bold text-sky-600">$0</div>
         <div class="mt-3">
-          <button id="checkout-btn" class="bg-sky-600 text-white px-6 py-2 rounded font-semibold">Ir a pagar</button>
+          <button id="checkout-btn" class="bg-sky-600 text-white px-6 py-2 rounded font-semibold w-full md:w-auto">Ir a pagar</button>
         </div>
       </div>
     </div>
@@ -71,19 +71,22 @@
         const subtotal = Number(it.unitPrice||0) * Number(it.quantity||1);
         total += subtotal;
         const row = document.createElement('div');
-        row.className = 'p-4 bg-white border rounded flex items-center justify-between';
+        row.className = 'p-4 bg-white border rounded flex flex-col md:flex-row items-start md:items-center justify-between gap-4';
         row.innerHTML = `
-          <div class="flex items-center gap-4">
-            <img src="${it.image||'logo.png'}" alt="" class="w-20 h-20 object-cover rounded">
-            <div>
+          <div class="flex items-center gap-4 w-full md:w-auto">
+            <img src="${it.image||'logo.png'}" alt="" class="w-20 h-20 object-cover rounded flex-shrink-0">
+            <div class="flex-grow">
               <div class="font-semibold">${it.name}</div>
               <div class="text-sm text-slate-600">${fmt(it.unitPrice)} c/u</div>
             </div>
           </div>
-          <div class="flex items-center gap-3">
-            <input type="number" min="1" value="${it.quantity}" data-idx="${idx}" class="w-20 border rounded px-2 py-1 text-center quantity-input">
+          <div class="flex flex-col md:flex-row items-start md:items-center gap-3 w-full md:w-auto">
+            <div class="flex items-center gap-2">
+              <label class="text-sm text-slate-600 md:hidden">Cantidad:</label>
+              <input type="number" min="1" value="${it.quantity}" data-idx="${idx}" class="w-16 border rounded px-2 py-1 text-center quantity-input">
+            </div>
             <div class="font-bold text-sky-600">${fmt(subtotal)}</div>
-            <button data-idx="${idx}" class="remove-btn text-red-600">Eliminar</button>
+            <button data-idx="${idx}" class="remove-btn text-red-600 text-sm md:text-base">Eliminar</button>
           </div>
         `;
         container.appendChild(row);
