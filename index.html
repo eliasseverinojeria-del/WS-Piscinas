@@ -3,13 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="WS Piscinas - Construcción, mantención y accesorios para piscinas en Rancagua">
+  <meta name="theme-color" content="#25A7E3">
   <title>WS Piscinas — Construcción, Mantención y Accesorios</title>
-  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="icon" type="image/png" href="LogoWSpiscinas.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Preload optimizations */
+    img { content-visibility: auto; }
+  </style>
 </head>
 <body class="font-sans antialiased text-slate-800">
  
@@ -17,7 +23,7 @@
   <header class="bg-white shadow sticky top-0 z-40">
     <div class="container mx-auto flex justify-between items-center py-4 px-6">
       <a href="#" class="flex items-center gap-2">
-        <img src="LogoWSpiscinas.jpg" alt="wspiscinas" class="h-12 w-auto">
+        <img src="LogoWSpiscinas.jpg" alt="wspiscinas" class="h-12 w-auto" loading="eager">
         <span class="font-bold text-xl text-sky-600">WS Piscinas</span>
       </a>
      <nav class="hidden md:flex gap-6 text-sm font-semibold text-slate-700">
@@ -51,7 +57,7 @@
   <div class="mt-10 grid md:grid-cols-3 gap-6">
     <!-- Bomba filtrado 1HP -->
     <div class="border rounded-xl overflow-hidden shadow hover:shadow-lg bg-white flex flex-col">
-      <img src="bombapiscina1hp.jpeg" alt="Bomba piscina" class="w-full h-48 object-cover">
+      <img src="bombapiscina1hp.jpeg" alt="Bomba piscina" class="w-full h-48 object-cover" loading="lazy" decoding="async">
       <div class="p-4 flex-1 flex flex-col justify-between">
         <div>
           <h3 class="font-semibold">Bomba filtrado 1HP</h3>
@@ -68,7 +74,7 @@
     </div>
    <!-- Cloro granulado -->
     <div class="border rounded-xl overflow-hidden shadow hover:shadow-lg bg-white flex flex-col">
-      <img src="Clorogranulado.jpeg" alt="Cloro" class="w-full h-48 object-cover">
+      <img src="Clorogranulado.jpeg" alt="Cloro" class="w-full h-48 object-cover" loading="lazy" decoding="async">
       <div class="p-4 flex-1 flex flex-col justify-between">
         <div>
           <h3 class="font-semibold">Cloro granulado</h3>
@@ -86,7 +92,7 @@
             <option value="5">5 kg</option>
           </select>
           <button id="cloro-granulado-btn" type="button" class="bg-sky-600 text-white px-3 py-1 rounded font-semibold hover:bg-sky-700 text-sm block text-center"
-            onclick="(function(){ const sel=document.getElementById('cloro-granulado-select'); const kg=sel.value; const price = (kg==='1'?3500:(kg==='3'?10000:15000)); addToCart({ key:'cloro-granulado', name: 'Cloro granulado - '+kg+' kg', unitPrice:price, quantity:1, image: 'Clorogranulado.jpeg' }); location.href='carrito.html';})()"
+            onclick="(function(){ const sel=document.getElementById('cloro-granulado-select'); const kg=sel.value; const price = (kg==='1'?3500:(kg==='3'?10000:15000)); addToCart({ key:'cloro-granulado', name:'Cloro granulado '+kg+'kg', unitPrice:price, quantity:1, image:'Clorogranulado.jpeg' }); location.href='carrito.html'; })();"
             >
             Agregar al carro
           </button>
@@ -95,7 +101,7 @@
     </div>
    <!-- Cloro en tabletas triple acción -->
     <div class="border rounded-xl overflow-hidden shadow hover:shadow-lg bg-white flex flex-col">
-      <img src="pastillascloro.jpeg" alt="Cloro tabletas" class="w-full h-48 object-cover">
+      <img src="pastillascloro.jpeg" alt="Cloro tabletas" class="w-full h-48 object-cover" loading="lazy" decoding="async">
       <div class="p-4 flex-1 flex flex-col justify-between">
         <div>
           <h3 class="font-semibold">Cloro en tabletas triple acción</h3>
@@ -113,7 +119,7 @@
             <option value="5">5 kg</option>
           </select>
           <button id="cloro-tabletas-btn" type="button" class="bg-sky-600 text-white px-3 py-1 rounded font-semibold hover:bg-sky-700 text-sm block text-center"
-            onclick="(function(){ const sel=document.getElementById('cloro-tabletas-select'); const kg=sel.value; const price = (kg==='1'?3900:(kg==='3'?10500:16000)); addToCart({ key:'cloro-tabletas', name: 'Cloro en tabletas - '+kg+' kg', unitPrice:price, quantity:1, image: 'pastillascloro.jpeg' }); location.href='carrito.html';})()"
+            onclick="(function(){ const sel=document.getElementById('cloro-tabletas-select'); const kg=sel.value; const price = (kg==='1'?3900:(kg==='3'?10500:16000)); addToCart({ key:'cloro-tabletas', name:'Cloro tabletas '+kg+'kg', unitPrice:price, quantity:1, image:'pastillascloro.jpeg' }); location.href='carrito.html'; })();"
             >
             Agregar al carro
           </button>
@@ -146,7 +152,7 @@
   <footer id="contacto" class="bg-slate-900 text-white py-12">
     <div class="container mx-auto px-6 grid md:grid-cols-3 gap-8">
       <div class="flex items-center gap-3">
-        <img src="logoWSpiscinastransparente.png" alt="WS Piscinas" class="h-12">
+        <img src="LogoWSpiscinas.jpg" alt="WS Piscinas" class="h-12" loading="lazy">
         <span class="font-bold text-lg">WS Piscinas</span>
       </div>
       <div>
@@ -163,17 +169,15 @@
   </footer>
 
   <!-- Botón WhatsApp flotante -->
-  <a href="https://api.whatsapp.com/send?phone=56987304690&text=Hola%20WS%20Piscinas%2C%20quiero%20cotizar" class="fixed bottom-5 right-5 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition z-30"
-    title="Contactar por WhatsApp">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.672.15-.198.297-.768.967-.94 1.164-.168.196-.337.22-.635.07-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.672-1.622-.922-2.206-.242-.579-.487-.5-.672-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a6.963 6.963 0 00-7.145 6.954c0 1.474.324 2.918.944 4.267l-1.006 3.674 3.77-.988a6.961 6.961 0 004.126 1.271h.004c3.879 0 7.067-3.188 7.067-7.066 0-1.891-.823-3.714-2.262-4.955a7.066 7.066 0 00-4.804-1.978M3.159 20.033l.006-.009m16.884-15.384l-.007.011"/></svg>
+  <a href="https://api.whatsapp.com/send?phone=56987304690&text=Hola%20WS%20Piscinas%2C%20quiero%20cotizar" class="fixed bottom-5 right-5 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition z-30" title="Contactar por WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.672.15-.198.297-.768.967-.9 1.165-.132.198-.265.223-.46.075-.577-.388-1.197-.922-1.678-1.498-.397-.44-.747-.986-1.04-1.566-.108-.215-.011-.332.083-.44.085-.087.19-.223.285-.334.095-.112.127-.19.19-.315.064-.126.032-.237-.016-.332-.048-.095-.672-1.612-.922-2.207-.241-.579-.486-.5-.672-.51-.174-.008-.373-.01-.571-.01-.198 0-.52.074-.792.372-.272.299-1.040 1.016-1.040 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a8.06 8.06 0 00-8.062 8.062c0 1.585.38 3.155 1.089 4.563L3.036 21.75l4.573-1.196a8.025 8.025 0 004.317 1.196h.005c4.454 0 8.063-3.609 8.063-8.062 0-2.145-.834-4.157-2.353-5.676-1.52-1.52-3.531-2.353-5.677-2.353"/></svg>
   </a>
 
   <!-- Icono Carrito Flotante -->
-  <a href="carrito.html" class="fixed bottom-24 right-5 w-14 h-14 bg-sky-600 rounded-full flex items-center justify-center shadow-lg hover:bg-sky-700 transition z-30"
-    title="Ver carrito de compras">
+  <a href="carrito.html" class="fixed bottom-24 right-5 w-14 h-14 bg-sky-600 rounded-full flex items-center justify-center shadow-lg hover:bg-sky-700 transition z-30" title="Ver carrito de compras">
     <div class="relative">
       <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 fill-white" viewBox="0 0 24 24">
-        <path d="M7 4V3a1 1 0 011-1h2a1 1 0 011 1v1h6V3a1 1 0 011-1h2a1 1 0 011 1v1a3 3 0 013 3v2h1a1 1 0 110 2h-.189l-.342 10.265A3 3 0 0120.126 21H3.874a3 3 0 01-2.989-2.735L.665 8H0a1 1 0 110-2h1V7a3 3 0 013-3zm2 2a1 1 0 00-1 1v2a1 1 0 002 0V7a1 1 0 00-1-1zm6 0a1 1 0 00-1 1v2a1 1 0 002 0V7a1 1 0 00-1-1z"/>
+        <path d="M7 4V3a1 1 0 011-1h2a1 1 0 011 1v1h6V3a1 1 0 011-1h2a1 1 0 011 1v1a3 3 0 013 3v2h1a1 1 0 110 2h-.189l-.342 10.265A3 3 0 0120.126 21H3.874a3 3 0 01-2.989-2.735L.665 8H0a1 1 0 110-2h1V7a3 3 0 013-3zm2 4a1 1 0 00-2 0v6a1 1 0 102 0V8zm6 0a1 1 0 00-2 0v6a1 1 0 102 0V8zm2-4H5a1 1 0 00-1 1v1h12V5a1 1 0 00-1-1z"/>
       </svg>
       <span id="cart-badge" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center hidden">0</span>
     </div>
