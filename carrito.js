@@ -20,6 +20,20 @@
     };
   }
 
+  // Actualizar el badge del carrito
+  function updateCartBadge(){
+    const badge = document.getElementById('cart-badge');
+    if (!badge) return;
+    const items = getCart();
+    const count = items.reduce((acc, item) => acc + (Number(item.quantity) || 1), 0);
+    if (count > 0) {
+      badge.textContent = count;
+      badge.classList.remove('hidden');
+    } else {
+      badge.classList.add('hidden');
+    }
+  }
+
   window.addToCart = window.addToCart || function(item){
     const n = normalize(item);
     const c = getCart();
@@ -27,6 +41,7 @@
     if (idx >= 0) c[idx].quantity = Number(c[idx].quantity) + Number(n.quantity);
     else c.push(n);
     saveCart(c);
+    updateCartBadge();
     try { window.dispatchEvent(new CustomEvent('ws_cart_updated', { detail: { count: getCart().length } })); } catch(e){}
   };
 
@@ -63,7 +78,16 @@
     });
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ()=>interceptAnchors(document));
-  else interceptAnchors(document);
-  new MutationObserver(()=> interceptAnchors(document)).observe(document.documentElement, { childList:true, subtree:true });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ()=>{
+    interceptAnchors(document);
+    updateCartBadge();
+  });
+  else {
+    interceptAnchors(document);
+    updateCartBadge();
+  }
+  new MutationObserver(()=> {
+    interceptAnchors(document);
+    updateCartBadge();
+  }).observe(document.documentElement, { childList:true, subtree:true });
 })();
